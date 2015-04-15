@@ -1,4 +1,4 @@
-//Authors: genraim and Quilch
+//Authors: Genraim and Quilch
 #include <iostream>
 int main() {
 	std::cout << "Hello world\n";
