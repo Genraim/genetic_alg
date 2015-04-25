@@ -11,21 +11,15 @@ struct vec {
 class Genetic {
 	public:
 		void GiveConstVector(vec v) {const_vector = v;}
-		float Solve() {
 
-		}
 	private:
 		vec const_vector; //здесь хранятся коэффициенты при неизвестных и свободный член
 		vec vector_array[100];
 	protected:
 		float Fitness(vec &);
-		vec Generator(vec);
+		vec Generator(int, float, float);
+
 
 };
 
-
-
-vec Genetic::Generator(vec ) {
-
-}
 
