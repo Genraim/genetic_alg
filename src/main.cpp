@@ -1,15 +1,16 @@
 //Authors: Genraim and Quilch
 #include <iostream>
-#include "genClass.hpp"
+
+#include "../include/geneClass.hpp"
 
 using namespace std;
 
 int read(vec);
-
+class Genetic gene;
 int main() {
 	vec constvec; //здесь будем хранить коэф при каждой неизвестной, а также правую часть уравения (свободный член)
-	constvec.type = 0;
 	read(constvec);
+	gene.GiveConstVector(constvec);
 
 }
 int read(vec &cvec) {
