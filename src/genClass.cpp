@@ -8,10 +8,26 @@ struct vec {
 	float solution; // решение при подстановке значений variable[i]
 };
 
-class Generate {
+class GenerateClass {
 	public:
+		float Solve() {
 
+		}
 	private:
 		vec svector;
+		vec array[100];
+	protected:
+		float Fitness(vec &);
 
 };
+
+float GenerateClass::Fitness(vec &array) {
+	vec elem;
+	for (int i = 0; i < 100; i++){
+		elem = array[i];
+		for (int j = 0; j < 4; j++) {
+			elem.solution = svector.variable[j] * elem.variable[j];
+		}
+	}
+	return elem.solution;
+}
