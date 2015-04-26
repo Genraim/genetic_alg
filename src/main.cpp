@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int read(vec);
+int read(vec &);
 class Genetic gene;
 int main() {
 	vec constvec; //здесь будем хранить коэф при каждой неизвестной, а также правую часть уравения (свободный член)

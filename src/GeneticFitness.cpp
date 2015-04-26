@@ -1,6 +1,6 @@
 //#include "../include/geneClass.hpp"
 #include "../include/GeneticFitness.hpp"
-
+//Genraim:не уверен что нужно использовать &gene, а не gene
 float Genetic::Fitness(vec &gene) {
 	float result = 0;
 	for (int i = 0; i < 4; i++) {
