@@ -1,6 +1,5 @@
 //Authors: Genraim and Quilch
 #include <iostream>
-
 #include "../include/geneClass.hpp"
 
 using namespace std;
