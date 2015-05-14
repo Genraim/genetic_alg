@@ -16,10 +16,10 @@ private:
 	float fit_array;
 protected:
 	void Fitness(vec& gene);
-	void Generator(int, int);
+	int Generator(int, int);
 	vec Mutation(vec);
 	vec Crossing(vec, vec);
-	void Calculate(vec);
+	int Calculate(vec&);
 	void NewPopulation();
 };
 #endif
