@@ -1,14 +1,13 @@
-#include "../include/GeneticGenerator.hpp"
-//#include "../include/geneClass.hpp"
+//#include "../include/GeneticGenerator.hpp"
+#include "../include/geneClass.hpp"
 #include<ctime>
 #include <cstdlib>
-
-vec Genetic::Generator(int n, float a, float b) {
-	n = 100; //пока n фиксировано, но вроде как массив не обязан быть задан заранее, потом посмотрим
-	vec array[n];
+#define POP_SIZE 100
+void Genetic::Generator(int a, int b) {
+	vec array[POP_SIZE];
 	vec elem;
 	float pre_elem;
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < POP_SIZE; i++) {
 		elem = array[i];
 		for (int j = 0; j < 4; j++) {
 			//srand(time(0));
@@ -18,7 +17,7 @@ vec Genetic::Generator(int n, float a, float b) {
 		}
 
 	}
-	vector_array = array; //эта строчка записала в массив класса то что мы сгенерировали
-	return array; //Genraim:я думаю так делать очень-очень плохо
-	//Genraim:Не нужно ничего возвращать (скорее всего), лучше модернизировать изначальный массив, описанный в классе (vector_array[])
+	for (int i = 0; i < POP_SIZE; i++)
+		vector_array[i] = array[i]; //эта строчка записала в массив класса то что мы сгенерировали
+
 }

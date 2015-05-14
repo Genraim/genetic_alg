@@ -1,5 +1,5 @@
-#include "geneClass.hpp"
-#include "GeneticMutation.hpp"
+#include "../include/geneClass.hpp"
+//#include "GeneticMutation.hpp"
 #include <ctime>
 #include <cstdlib>
 
