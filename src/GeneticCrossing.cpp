@@ -2,7 +2,7 @@
 #include "../include/geneClass.hpp"
 #include <cstdlib>
 #include <ctime>
-#define N 4
+#define N 2
 
 vec Genetic::Crossing(vec mother, vec father) {
 	vec child;

@@ -1,15 +1,11 @@
 #include "../include/geneClass.hpp"
 #include <iostream>
-/**
-	\file
-	\brief Считает значение функции для данного вектора.
-
-*/
+#define N 2
 
 int Genetic::Calculate(vec& v) {
 	float var;
-	for (int i = 0; i < 4; i++){
-		var += const_vector.variable[i] * v.variable[i];
+	for (int i = 0; i < N; i++){
+		var += const_vector.variable[i] * v.variable[i] * v.variable[i];
 	};
 	v.solution = var - const_vector.solution;
 	//std::cout << " " << var << " " << v.solution << " ";

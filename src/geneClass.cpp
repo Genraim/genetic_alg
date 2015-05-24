@@ -2,7 +2,7 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
-#define N 4
+#define N 2
 
 void Genetic::GiveConstVector(vec v) {const_vector = v;}; //Читаем коэффиценты в уравнении и записываем их в класс
 int Genetic::PrintResult(int pop_size) {
@@ -17,6 +17,10 @@ int Genetic::PrintResult(int pop_size) {
 }
 
 bool Genetic::LiveOrNot(vec v) {
-	//srand(time(0));
-	return v.fitness >= rand()/RAND_MAX;
+	srand(time(0));
+	return v.fitness >= rand()/(double)RAND_MAX;
+}
+void Genetic::PreFitness(double solution) {
+	max_value = (solution > max_value) ? solution : max_value;
+	min_value = (solution < max_value) ? solution : min_value;
 }

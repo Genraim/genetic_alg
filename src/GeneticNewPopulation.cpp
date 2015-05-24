@@ -1,25 +1,26 @@
 #include "../include/geneClass.hpp"
-//#include "GeneticNewPopulation.hpp"
 #include <cstdlib>
 #include <ctime>
-#include <iostream>
 
-#define N 4
-#define POP_SIZE 100
+#define N 2
+#define POP_SIZE 1000
 
 
 void Genetic::NewPopulation() {
-	//srand(time(0));
+	srand(time(0));
 	int i;
-	for (i = 0; i < 4; i++) {
+	for (i = 0; i < 5; i++) {
 		int j = rand() % POP_SIZE;
-		temp_array[i] = Mutation(vector_array[j]);
-		Calculate(temp_array[i]);
-		fit_array = (fit_array > temp_array[i].solution) ? temp_array[i].solution : fit_array;
-		Fitness(temp_array[i]);
+		for (int k = 10*(i-1); k < 10*i; k++) {
+			temp_array[k] = Mutation(vector_array[j]);
+			Calculate(temp_array[k]);
+			PreFitness(temp_array[k].solution);
+			Fitness(temp_array[k]);
+		}
 	}
-	std::cout << "i: " << i << " ";
-	while(i < 14) {
+	i = 50;
+
+	while(i < 200) {
 		int k = rand() % POP_SIZE;
 		if (LiveOrNot(vector_array[k])) {
 			i++;
@@ -33,7 +34,7 @@ void Genetic::NewPopulation() {
 			i++;
 			temp_array[i] = Crossing(vector_array[k], vector_array[j]);
 			Calculate(temp_array[i]);
-			fit_array = (fit_array > vector_array[i].solution) ? vector_array[i].solution : fit_array;
+			PreFitness(temp_array[i].solution);
 			Fitness(temp_array[i]);
 		}
 	}

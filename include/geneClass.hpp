@@ -1,11 +1,12 @@
 #ifndef GEN_CLASS_HPP_
 #define GEN_CLASS_HPP_
-#define POP_SIZE 100
+#define POP_SIZE 1000
+#include <vector>
 
 struct vec {
-	float variable[4];
-	float solution;
-	float fitness;
+	double variable[2];
+	double solution;
+	double fitness;
 };
 class Genetic {
 public:
@@ -16,7 +17,8 @@ private:
 	vec const_vector;
 	vec vector_array[POP_SIZE];
 	vec temp_array[POP_SIZE];
-	float fit_array;
+	double max_value;
+	double min_value;
 protected:
 	void Fitness(vec& gene);
 	bool LiveOrNot(vec);
@@ -25,5 +27,6 @@ protected:
 	vec Crossing(vec, vec);
 	int Calculate(vec&);
 	void NewPopulation();
+	void PreFitness(double);
 };
 #endif

@@ -1,6 +1,7 @@
 //Authors: Genraim and Quilch
 #include <iostream>
 #include "../include/geneClass.hpp"
+#define POP_SIZE 1000
 
 using namespace std;
 
@@ -11,7 +12,7 @@ int main() {
 	read(constvec);
 	gene.GiveConstVector(constvec);
 	gene.Solve();
-	gene.PrintResult(100);
+	gene.PrintResult(POP_SIZE);
 	/*Функционал который бы хотелось запилить:
 	 * Вывод лога, нужно знать что происходит в промежуточных итерациях
 	 * Можно вообще все выводить куда-нибудь в файл
@@ -26,13 +27,13 @@ int read(vec& cvec) {
 
 	cout << "a: \n";
 	cin >> cvec.variable[0];
-	cout << "\n b: \n";
+	cout << "\nb: \n";
 	cin >> cvec.variable[1];
-	cout << "\n c: \n";
-	cin >> cvec.variable[2];
-	cout << "\n d: \n";
-	cin >> cvec.variable[3];
-	cout << "\n Свободный член: \n";
+	//cout << "\n c: \n";
+	//cin >> cvec.variable[2];
+	//cout << "\n d: \n";
+	//cin >> cvec.variable[3];
+	cout << "\nСвободный член: \n";
 	cin >> cvec.solution;
 	return 0;
 }
