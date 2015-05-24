@@ -2,7 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 
-void Genetic::Selection(int pop_size, vec v) {
+void Genetic::Selection(int pop_size, vec v) { //пойдет в новую популяцию или нет, есть зависимость от размера популяции на предыдущей итерации
 	//srand(time(0));
 	if ( v.fitness >=
 			(rand()/(double)RAND_MAX) +

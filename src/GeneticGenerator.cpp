@@ -3,15 +3,13 @@
 #include <cstdlib>
 #include <iostream>
 #include <vector>
-#define POP_SIZE 1000
 #define N 2
 
-int Genetic::Generator(int a, int b, int n) {
+int Genetic::Generator(int a, int b, int n) { //генерация n особей в интервале [a, b]
 	vec elem;
-	//srand(time(0));
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < N; j++)
-			elem.variable[j] = (rand() % (b-a) + a) + 1/(double)(rand()+1);
+			elem.variable[j] = (rand() % (b-a-1) + a) + 1/(double)(rand()+1); // -1 для того чтобы число не превысило b
 		vector_array.push_back(elem);
 		}
 

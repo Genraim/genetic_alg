@@ -1,17 +1,12 @@
 #include "../include/geneClass.hpp"
-#include <iostream>
 #define N 2
 
-int Genetic::Calculate(vec& v) {
+int Genetic::Calculate(vec& v) { //вычисление значения
 	float var;
 	for (int i = 0; i < N; i++){
 		var += const_vector.variable[i] * v.variable[i] * v.variable[i];
 	};
 	v.solution = var - const_vector.solution;
-	//std::cout << " " << var << " " << v.solution << " ";
 	return 0;
 }
-/**
-	Подсчитываем значение функции.
-    \param[in, out] v Элемент типа вектор, результат записывается в соответствующее поле вектора.
-*/
+
