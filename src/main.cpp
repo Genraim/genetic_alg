@@ -1,5 +1,6 @@
-//Authors: Genraim and Quilch
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "../include/geneClass.hpp"
 #define POP_SIZE 1000
 
@@ -8,11 +9,13 @@ using namespace std;
 int read(vec&);
 class Genetic gene;
 int main() {
+	srand(time(NULL));
 	vec constvec; //здесь будем хранить коэф при каждой неизвестной, а также правую часть уравения (свободный член)
 	read(constvec);
 	gene.GiveConstVector(constvec);
+	gene.Parametre(500);
 	gene.Solve();
-	gene.PrintResult(POP_SIZE);
+	gene.PrintResult();
 	/*Функционал который бы хотелось запилить:
 	 * Вывод лога, нужно знать что происходит в промежуточных итерациях
 	 * Можно вообще все выводить куда-нибудь в файл
@@ -22,7 +25,7 @@ int main() {
 
 }
 int read(vec& cvec) {
-	cout << "Программа для нахождения корней линейного уравнения с 4-я неизвестными \n" <<
+	cout << "Программа для нахождения минимума\n" <<
 			"--------------------------------\n" << "Введите коэффициенты: " << endl;
 
 	cout << "a: \n";
