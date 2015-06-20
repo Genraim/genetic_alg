@@ -1,11 +1,12 @@
 #include "../include/geneClass.hpp"
 #include <ctime>
 #include <cstdlib>
+#include <cmath>
 
-void Genetic::Selection(int pop_size, vec v) { //пойдет в новую популяцию или нет, есть зависимость от размера популяции на предыдущей итерации
-	//srand(time(0));
-	if ( v.fitness >=
-			(rand()/(double)RAND_MAX) +
-			(pop_size - parameter_optimal_size_population)/(double)(3*parameter_optimal_size_population) )
+void Genetic::Selection (int pop_size, vec v) {
+	double temp;
+	temp = (pop_size - parameter_optimal_size_population)/parameter_optimal_size_population;
+	temp++;
+	if (LiveOrNot(pow(v.fitness, temp)))
 		vector_array.push_back(v);
 }

@@ -11,13 +11,10 @@ int Genetic::PrintResult() { //вывод результата
 	for (int i = 0; i < (int)vector_array.size(); i++)
 		min = (min.solution < vector_array[i].solution) ? min : vector_array[i];
 	std::cout << min.variable[0] << " " << min.variable[1] << " solution: " << min.solution << std::endl;
+	//проверить размерность векторов
 	return 0;
 }
 
-bool Genetic::LiveOrNot(vec v) { //будет жить или нет
-	//srand(time(0));
-	return v.fitness >= rand()/(double)RAND_MAX;
-}
 void Genetic::PreFitness(vec v) { //коррекция минимума/максимума если необходимо
 	max_value = (v.solution > max_value) ? v.solution : max_value;
 	min_value = (v.solution < max_value) ? v.solution : min_value;
@@ -25,4 +22,23 @@ void Genetic::PreFitness(vec v) { //коррекция минимума/макс
 
 void Genetic::Parametre(int n) { //принимает параметры, пока есть только один параметр
 	parameter_optimal_size_population = n;
+}
+//проверить все переменные на инициализацию
+
+int Genetic::RandomInt(int a, int b) { 
+	return rand() % (b-a+1) + a;
+}
+
+double Genetic::RandomDouble(double min, double max) {
+	double value, temp;
+	value = min + rand() % (int)(max - min + 1);
+	temp = rand()/(double)RAND_MAX;
+	if (temp < max - value)
+		value += temp;
+	return value;
+	//нужно что то придумать, чтобы число генерировалось точно в нужном диапазоне
+} 
+
+bool Genetic::LiveOrNot(double n) {
+	return (n > rand()/(double)RAND_MAX);
 }

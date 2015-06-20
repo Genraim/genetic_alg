@@ -16,7 +16,8 @@ void Genetic::NewPopulation() {
 		temp_array.push_back(vector_array[i]);
 	//Теперь добавим мутантов в буфер:
 	for (int i = 0; i < MUT_VALUE; i++) {
-		int j = rand() % pop_size;
+		//int j = rand() % pop_size;
+		int j = RandomInt(0, pop_size);
 		for (int k = 0; k < 10; k++) {
 			vec v = Mutation(vector_array[j]);
 			Calculate(v);
@@ -29,7 +30,7 @@ void Genetic::NewPopulation() {
 	while (i < CROSS_VALUE) {
 		int parent1 = rand() % pop_size;
 		int parent2 = rand() % pop_size;
-		if (LiveOrNot(vector_array[parent1]) && LiveOrNot(vector_array[parent2])) {
+		if (LiveOrNot(vector_array[parent1].fitness) && LiveOrNot(vector_array[parent2].fitness)) {
 			vec v = Crossing(vector_array[parent1], vector_array[parent2]);
 			Calculate(v);
 			PreFitness(v);

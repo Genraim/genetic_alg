@@ -1,4 +1,3 @@
-//#include "../include/GeneticCrossing.hpp"
 #include "../include/geneClass.hpp"
 #include <cstdlib>
 #include <ctime>
@@ -6,7 +5,12 @@
 
 vec Genetic::Crossing(vec mother, vec father) { //берем среднее по каждой из координат
 	vec child;
-	for (int i = 0; i < N; i++)
-		child.variable[i] = (mother.variable[i] + father.variable[i])/(double)2;
+	for (int i = 0; i < N; i++) {
+		if (mother.variable[i] < father.variable[i])
+			child.variable[i] = RandomDouble(mother.variable[i], father.variable[i]);
+		else
+			child.variable[i] = RandomDouble(father.variable[i], mother.variable[i]);
+	}
 	return child;
 }
+//можно смешивать каждую координату со случайным весом или выбирать произвольную точку на прямой

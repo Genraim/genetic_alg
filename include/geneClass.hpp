@@ -23,7 +23,7 @@ private:
 	int parameter_optimal_size_population; //предпочтительный размер популяции
 protected:
 	void Fitness(vec& gene); //вычисление коэф. выживаемости
-	bool LiveOrNot(vec); //по коэф. выживаемости и священному рандому определяет выживет особь или нет
+	bool LiveOrNot(double); //по коэф. выживаемости и священному рандому определяет выживет особь или нет
 	int Generator(int, int, int); //генерация стартовой популяции
 	vec Mutation(vec);
 	vec Crossing(vec, vec);
@@ -31,5 +31,7 @@ protected:
 	void NewPopulation(); //генерирует новую популяцию на основе старой, по сути использует в себе все остальные
 	void PreFitness(vec); //нахождение максимального и мнимального значений для популяции
 	void Selection(int, vec); //выбор тех, кто выживет и пойдет в новую популяцию
+	int RandomInt(int, int);
+	double RandomDouble(double, double);
 };
 #endif

@@ -1,4 +1,3 @@
-//#include "../include/GeneticFitness.hpp"
 #include "../include/geneClass.hpp"
 
 void Genetic::Fitness(vec& v) { //вычисление выживаемости элемента

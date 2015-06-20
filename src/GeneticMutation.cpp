@@ -3,15 +3,15 @@
 #include <cstdlib>
 #define N 2
 vec Genetic::Mutation(vec gene) { //мутация
-	//srand(time(0));
 	for (int i = 0; i < N; i++) { //по каждой переменной
-		//srand(time(0));
-		if (1 == rand() % 2) { //мутировать переменную или нет?
-			if ( 1 == rand() % 2) //если мутировать, то добавить произвольное значение или нет?
-				gene.variable[i] += rand()/(double)RAND_MAX;
+		if (LiveOrNot(0.5)) { //мутировать переменную или нет?
+			if (LiveOrNot(0.5)) //если мутировать, то добавить произвольное значение или нет?
+				gene.variable[i] += RandomDouble(0, 1);
 			else
-				gene.variable[i] -= rand()/(double)RAND_MAX;
+				gene.variable[i] -= RandomDouble(0, 1);
 		}
 	}
 	return gene;
 }
+//2 функции случайных чисел для вещественных и целых чисел, которые бы находили число в нужном диапазоне
+//случилось ли событие для заданной вероятности?
