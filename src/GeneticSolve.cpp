@@ -9,14 +9,14 @@
 
 int Genetic::Solve() {
 	//Создаем стартовую популяцию
-	Generator(-50, 50, 100);
+	Generator(parameter_area_a, parameter_area_b, parameter_area_c, parameter_area_d, 100);
 	//Посчитаем для каждого элемента его значение
 	for (int i = 0; i < POP_SIZE; i++) {
 		Calculate(vector_array[i]);
 		};
 	//запускаем итерацию
 	for (int i = 0; i < 100; i++) { //100 итераций
-		std::cout << "итерация: " << i << " ";
+		//std::cout << "итерация: " << i << " ";
 		min_value = DBL_MAX;
 		max_value = DBL_MIN;
 		for (int i = 0; i < POP_SIZE; i++)

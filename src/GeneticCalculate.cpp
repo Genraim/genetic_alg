@@ -2,7 +2,7 @@
 #define N 2
 
 int Genetic::Calculate(vec& v) { //вычисление значения
-	float var = 0;
+	double var = 0;
 	for (int i = 0; i < N; i++){
 		var += const_vector.variable[i] * v.variable[i] * v.variable[i];
 	};

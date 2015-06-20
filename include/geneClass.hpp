@@ -1,10 +1,10 @@
 #ifndef GEN_CLASS_HPP_
 #define GEN_CLASS_HPP_
-#define POP_SIZE 1000
+#define N 2
 #include <vector>
 
 struct vec {
-	double variable[2];
+	double variable[N];
 	double solution;
 	double fitness;
 };
@@ -13,7 +13,7 @@ public:
 	void GiveConstVector(vec v); //функция ввода коэф. перед аргументами
 	int Solve(); //собственно поиск решения
 	int PrintResult(); //вывод
-	void Parametre(int); //ввод параметра
+	void Parametre(int, double, double, double, double); //ввод параметра
 private:
 	vec const_vector; //переменная для коэф. функции
 	std::vector<vec> vector_array; //основная популяция
@@ -21,10 +21,14 @@ private:
 	double max_value; //максимальное значение популяции
 	double min_value; //минимальное значение популяции
 	int parameter_optimal_size_population; //предпочтительный размер популяции
+	double parameter_area_a;
+	double parameter_area_b;
+	double parameter_area_c;
+	double parameter_area_d;
 protected:
 	void Fitness(vec& gene); //вычисление коэф. выживаемости
 	bool LiveOrNot(double); //по коэф. выживаемости и священному рандому определяет выживет особь или нет
-	int Generator(int, int, int); //генерация стартовой популяции
+	int Generator(double, double, double, double, int); //генерация стартовой популяции
 	vec Mutation(vec);
 	vec Crossing(vec, vec);
 	int Calculate(vec&);
